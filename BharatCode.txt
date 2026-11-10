@@ -1,0 +1,41 @@
+
+AlgoBuddy AI
+BharatCode Build League 2026
+
+PROJECT OVERVIEW
+AlgoBuddy AI is an AI-powered learning companion designed to help students understand Data Structures and Algorithms through interactive explanations and practice.
+
+PROBLEM
+Students often struggle with understanding DSA concepts, applying algorithms and getting personalised feedback while learning.
+
+SOLUTION
+AlgoBuddy AI provides an interactive AI tutor with four learning modes.
+
+KEY FEATURES
+1. Learn: Beginner-friendly explanations of DSA topics.
+2. Practice: Generates topic-based practice questions.
+3. Evaluate: Reviews student answers and provides feedback.
+4. Ask AI: Answers DSA-related doubts interactively.
+
+TECHNOLOGY STACK
+- HTML
+- CSS
+- JavaScript
+- Node.js
+- Express.js
+- BharatCode AI API
+
+HOW TO RUN
+1. Install Node.js.
+2. Clone the repository.
+3. Run npm install.
+4. Create a .env file and configure BHARATCODE_API_KEY.
+5. Run npm run dev.
+6. Open http://localhost:3000.
+
+DEVELOPER
+Ritika Jain
+
+SECURITY
+API credentials are stored in environment variables and are not included in the public repository.
+    
