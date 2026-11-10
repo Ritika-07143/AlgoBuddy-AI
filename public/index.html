@@ -1,0 +1,582 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#781f2b">
+
+<title>AlgoBuddy AI | Your DSA Companion</title>
+
+<style>
+:root {
+  --ivory: #f8f3e9;
+  --cream: #f1e8d9;
+  --white: #fffdf9;
+  --red: #781f2b;
+  --wine: #4b111c;
+  --gold: #c5a052;
+  --gold-light: #e8d7ac;
+  --text: #332629;
+  --muted: #83736d;
+  --border: #e5d8c7;
+  --shadow: 0 12px 35px rgba(75, 17, 28, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  background: var(--ivory);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Header */
+
+header {
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 253, 249, 0.9);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+  color: var(--red);
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+.tag {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+/* Main section */
+
+main {
+  max-width: 1000px;
+  width: 90%;
+  margin: 65px auto 55px;
+}
+
+/* Hero */
+
+.hero {
+  text-align: center;
+  margin-bottom: 38px;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--red);
+  background: #f0e2dc;
+  padding: 6px 15px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(36px, 6vw, 55px);
+  line-height: 1.2;
+  color: var(--wine);
+  margin-bottom: 15px;
+}
+
+.hero h1 span {
+  color: var(--red);
+  font-style: italic;
+}
+
+.hero p {
+  max-width: 590px;
+  margin: auto;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* Main panel */
+
+.panel {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 38px;
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--wine),
+    var(--red),
+    var(--gold)
+  );
+}
+
+.panel-heading {
+  margin-bottom: 27px;
+}
+
+.panel-heading h2 {
+  color: var(--wine);
+  font-family: Georgia, serif;
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.panel-heading p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Form */
+
+label {
+  display: block;
+  margin: 22px 0 10px;
+  color: var(--wine);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+select,
+textarea {
+  width: 100%;
+  background: #fdfbf7;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 15px 16px;
+  border-radius: 11px;
+  font: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: 0.25s ease;
+}
+
+select {
+  cursor: pointer;
+}
+
+select:focus,
+textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(197, 160, 82, 0.13);
+}
+
+textarea {
+  min-height: 135px;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+textarea::placeholder {
+  color: #aa9e96;
+}
+
+/* Learning modes */
+
+.modes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+
+.mode {
+  padding: 13px 8px;
+  background: #faf6ef;
+  border: 1px solid var(--border);
+  color: #6c5555;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13px;
+  transition: all 0.25s ease;
+}
+
+.mode:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.mode.active {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff9ed;
+  box-shadow: 0 5px 13px rgba(120, 31, 43, 0.16);
+}
+
+/* Generate button */
+
+button.primary {
+  width: 100%;
+  padding: 16px;
+  margin-top: 23px;
+  border: 1px solid var(--red);
+  border-radius: 11px;
+  background: linear-gradient(120deg, var(--wine), var(--red));
+  color: #fff8e9;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+button.primary:hover:not(:disabled) {
+  background: linear-gradient(120deg, #681725, #922d3b);
+  box-shadow: 0 7px 20px rgba(75, 17, 28, 0.2);
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+/* Status */
+
+.status {
+  color: var(--red);
+  margin-top: 15px;
+  font-size: 13px;
+  text-align: center;
+  min-height: 20px;
+}
+
+/* Loading indicator */
+
+.status.loading::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 9px;
+  border: 2px solid var(--gold-light);
+  border-top-color: var(--red);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  vertical-align: -1px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Result */
+
+.result {
+  display: none;
+  margin-top: 30px;
+  background: #fdfaf4;
+  border: 1px solid var(--gold-light);
+  border-radius: 15px;
+  padding: 27px;
+  animation: appear 0.35s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result h2 {
+  color: var(--red);
+  font-family: Georgia, serif;
+  font-size: 21px;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+#answer {
+  white-space: pre-wrap;
+  line-height: 1.9;
+  color: var(--text);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+/* Footer */
+
+footer {
+  text-align: center;
+  padding: 30px 15px 25px;
+  margin-top: 35px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-credit {
+  color: var(--red);
+  font-weight: 750;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.footer-info {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.footer-powered {
+  color: #a28b65;
+  font-size: 11px;
+  margin-top: 9px;
+}
+
+/* Mobile */
+
+@media (max-width: 650px) {
+  header {
+    padding: 17px 5%;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  .tag {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  main {
+    width: 92%;
+    margin: 40px auto;
+  }
+
+  .hero {
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-size: 37px;
+  }
+
+  .hero p {
+    font-size: 13px;
+  }
+
+  .panel {
+    padding: 23px 19px;
+    border-radius: 17px;
+  }
+
+  .panel-heading h2 {
+    font-size: 22px;
+  }
+
+  .modes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9px;
+  }
+
+  .mode {
+    padding: 13px 5px;
+  }
+
+  .result {
+    padding: 19px;
+  }
+}
+
+@media (max-width: 350px) {
+  .tag {
+    display: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Algo<span>Buddy</span> AI</div>
+  <div class="tag">LEARN · PRACTICE · IMPROVE</div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="eyebrow">✦ YOUR PERSONAL DSA COMPANION</div>
+
+    <h1>Make DSA <span>make sense.</span></h1>
+
+    <p>
+      Learn algorithms with clarity, practise with purpose
+      and build confidence one problem at a time.
+      Your personal AI-powered DSA learning companion.
+    </p>
+  </section>
+
+  <section class="panel">
+
+    <div class="panel-heading">
+      <h2>What would you like to explore?</h2>
+      <p>Choose a topic, select your learning mode and get started.</p>
+    </div>
+
+    <label for="topic">01 &nbsp; Choose your DSA topic</label>
+
+    <select id="topic">
+      <option value="Arrays">Arrays</option>
+      <option value="Strings">Strings</option>
+      <option value="Linked Lists">Linked Lists</option>
+      <option value="Stacks and Queues">Stacks and Queues</option>
+      <option value="Recursion">Recursion</option>
+      <option value="Searching and Sorting">Searching and Sorting</option>
+      <option value="Trees">Trees</option>
+      <option value="Graphs">Graphs</option>
+      <option value="Dynamic Programming">Dynamic Programming</option>
+      <option value="Greedy Algorithms">Greedy Algorithms</option>
+    </select>
+
+    <label>02 &nbsp; Select your learning mode</label>
+
+    <div class="modes">
+      <button type="button" class="mode active" data-mode="learn">Learn</button>
+      <button type="button" class="mode" data-mode="practice">Practice</button>
+      <button type="button" class="mode" data-mode="evaluate">Evaluate</button>
+      <button type="button" class="mode" data-mode="ask">Ask AI</button>
+    </div>
+
+    <label for="question">03 &nbsp; Your question or answer</label>
+
+    <textarea
+      id="question"
+      placeholder="Example: Explain binary search with a simple example..."
+    ></textarea>
+
+    <button type="button" class="primary" id="submit">
+      Generate with AlgoBuddy &nbsp; →
+    </button>
+
+    <p class="status" id="status" aria-live="polite"></p>
+
+    <section class="result" id="result">
+      <h2>✦ AlgoBuddy's response</h2>
+      <div id="answer"></div>
+    </section>
+
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-credit">Designed & developed by Ritika Jain</div>
+  <div class="footer-info">BharatCode Build League · 2026</div>
+  <div class="footer-powered">Powered by BharatCode AI</div>
+</footer>
+
+<script>
+let currentMode = "learn";
+
+const modeButtons = document.querySelectorAll(".mode");
+
+modeButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    modeButtons.forEach(item => item.classList.remove("active"));
+
+    button.classList.add("active");
+    currentMode = button.dataset.mode;
+  });
+});
+
+document.getElementById("submit").addEventListener("click", async () => {
+
+  const topic = document.getElementById("topic").value;
+  const question = document.getElementById("question").value.trim();
+  const button = document.getElementById("submit");
+  const status = document.getElementById("status");
+  const result = document.getElementById("result");
+  const answer = document.getElementById("answer");
+
+  if (!question) {
+    status.classList.remove("loading");
+    status.textContent = "Please enter your question first.";
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = "AlgoBuddy is thinking...";
+  status.classList.add("loading");
+  status.textContent = "Connecting to BharatCode AI...";
+  result.style.display = "none";
+
+  try {
+    const response = await fetch("/api/tutor", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        topic,
+        question,
+        mode: currentMode
+      })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Something went wrong.");
+    }
+
+    answer.textContent = data.answer;
+    result.style.display = "block";
+    status.classList.remove("loading");
+    status.textContent = "Response generated successfully!";
+
+    result.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest"
+    });
+
+  } catch (error) {
+    status.classList.remove("loading");
+    status.textContent = error.message;
+  } finally {
+    button.disabled = false;
+    button.textContent = "Generate with AlgoBuddy →";
+  }
+});
+</script>
+
+</body>
+</html>
